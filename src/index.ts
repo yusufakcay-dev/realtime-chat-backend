@@ -7,7 +7,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { WebSocketServer } from "ws";
 import { useServer } from "graphql-ws/lib/use/ws";
 import cors from "cors";
-import { typeDefs, resolvers } from "./graphql/schema.js";
+import { typeDefs, resolvers } from "./graphqlasdas/schema.js";
 import { RedisPubSub } from "graphql-redis-subscriptions";
 import Redis from "ioredis";
 import { prisma } from "./prisma/prisma.js";
@@ -75,7 +75,7 @@ app.use(
   // an Apollo Server instance and optional configuration options
   expressMiddleware(server, {
     context: async () => {
-      return { prisma, pubsub };
+      return { prisma, pubsub, session };
     },
   })
 );
